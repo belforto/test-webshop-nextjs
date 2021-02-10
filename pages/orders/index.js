@@ -1,13 +1,37 @@
 import useSWR from "swr";
-import Header from '../../components/Header'
+import Header from "../../components/Header";
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Orders() {
-    const [notification, setNotification] = useState(false)
+
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log("This will run every second!");
-      setNotification(notification =>!notification)
+     
+      const Img = () => (
+        <div style={{display:"flex"}}>
+          <img
+            width={48}
+            src={
+              "https://randomuser.me/api/portraits/women/" +
+              Math.floor(Math.random() * 33) +
+              ".jpg"
+            }
+          />
+          🦄 New Order Woohoo!
+        </div>
+      );
+
+      toast.success(<Img />, {
+        position: "top-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined
+      });
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -19,27 +43,25 @@ export default function Orders() {
     getRandomDog
   );
 
-  console.log(data);
   return (
     <>
-    <Header/>
+    Client side Rendering
+      <Header />
       <div class="justify-end bg-purple-100">
-        {!!notification && (
-          <div class="p-6 max-w-sm mx-auto bg-purple-900 rounded-xl shadow-md flex items-center space-x-4">
-            <div class="flex-shrink-0">
-              <img
-                class="h-12 w-12"
-                src={"https://randomuser.me/api/portraits/women/"+Math.floor(Math.random() * 33)+".jpg"}
-                alt="Order Notification"
-              />
-            </div>
-            <div>
-              <div class="text-xl font-medium text-white">New Order</div>
-              <p class="text-gray-500">You have a new order!</p>
-            </div>
-          </div>
-        )}
-
+        <div>
+          <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss={false}
+            draggable
+            pauseOnHover
+          />
+        </div>
+       
         {error && <p>Error! {error}</p>}
 
         <div>

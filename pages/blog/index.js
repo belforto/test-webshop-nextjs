@@ -3,6 +3,7 @@ import React from 'react'
 export default function index({ posts }) {
     return (
         <div>
+          Static rendering, every 10 seconds
             <div class="flex flex-wrap md items-center h-screen">
       <div class="bg-white w-full md:w-1/2 h-screen">
         <div class="mx-32">

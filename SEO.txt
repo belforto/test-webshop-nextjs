@@ -1,0 +1,13 @@
+Great Content is the king
+
++Bounce rate as low
++Session duration high
+
+..also
+-schema.org and find schema atributes for article - itemscope, itemtype
+-Author written by know author
+-outbound links to other pages
+-alt attribute to images
+
+inside head, meta tags which are great for sharing on twitter and facebook
+
