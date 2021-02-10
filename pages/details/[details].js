@@ -82,33 +82,35 @@ export default function Details() {
           <div className="flex flex-col md:flex-row -mx-4">
             <div className="md:flex-1 px-4">
               <div x-data="{ image: 1 }" x-cloak>
-                <div className="h-64 md:h-80 rounded-lg bg-gray-100 mb-4">
+                <div className="h-64 md:h-80 rounded-lg bg-white-100 mb-4">
                   <div
                     x-show="image === 1"
-                    className="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center"
+                    className="h-64 md:h-80 rounded-lg bg-white-100 mb-4 flex items-center justify-center"
+                    style={{display:"flex"}}
                   >
-                    <span className="text-5xl">1</span>
+                    <img style={{margin:"auto",maxWidth:"300px"}} src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" />
                   </div>
 
                   <div
                     x-show="image === 2"
+                    style={{display:"flex", background:"gold"}}
                     className="h-64 md:h-20 rounded-lg bg-gray-100 mb-4 flex items-center justify-center"
                   >
-                    <span className="text-5xl">2</span>
+                    <span className="text-5xl"></span>
                   </div>
 
                   <div
                     x-show="image === 3"
                     className="h-64 md:h-20 rounded-lg bg-gray-100 mb-4 flex items-center justify-center"
                   >
-                    <span className="text-5xl">3</span>
+                    <span className="text-5xl"></span>
                   </div>
 
                   <div
                     x-show="image === 4"
                     className="h-64 md:h-20 rounded-lg bg-gray-100 mb-4 flex items-center justify-center"
                   >
-                    <span className="text-5xl">4</span>
+                    <span className="text-5xl"></span>
                   </div>
                 </div>
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function index({ posts }) {
+export default function index({ posts,generatedAt }) {
     return (
         <div>
           Static rendering, every 10 seconds
@@ -23,6 +23,7 @@ export default function index({ posts }) {
               <span class="uppercase">island</span>
               <p class="text-2xl text-gray-900 font-semibold pt-2">Honshu</p>
             </div>
+            
           </div>
 
           
@@ -49,6 +50,10 @@ export default function index({ posts }) {
         />
       </div>
     </div>
+    <div class="pr-4">
+              <span class="uppercase">Generated at</span>
+              <p class="text-2xl text-gray-900 font-semibold pt-2">{generatedAt.date}</p>
+            </div>
         </div>
     )
 }
@@ -61,12 +66,14 @@ export async function getStaticProps() {
     let posts = await res.url
   console.log("Regeneration of the page at "+ (new Date()).toISOString(),posts)
   posts={url:posts}
+  let generatedAt={date:(new Date()).toISOString()}
 
 
 
     return {
       props: {
         posts,
+        generatedAt
       },
       // Next.js will attempt to re-generate the page:
       // - When a request comes in
